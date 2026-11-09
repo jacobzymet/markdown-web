@@ -87,7 +87,7 @@
   }
 
   function prefixLines(prefix) {
-    const start = editor.value.lastIndexOf('\n', editor.selectionStart - 1) + 1;
+    const start = editor.value.slice(0, editor.selectionStart).lastIndexOf('\n') + 1;
     const end = editor.selectionEnd;
     const selected = editor.value.slice(start, end);
     const replacement = prefix + selected.replace(/\n(?!$)/g, `\n${prefix}`);
